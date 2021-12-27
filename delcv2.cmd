@@ -1,5 +1,4 @@
 @echo off
-
 ::config
 if not exist %~dp0\config.bat goto :mkconfig
 if exist %~dp0\config.bat goto :start
@@ -47,11 +46,10 @@ goto :smart
 if %mode%==nuke (
 goto :nuke
 )
-:automode
 ::AUTOMATIC  _____________________________________________________________________
+:automode
 :N2
 cls
-
 if %confirm%==N (
 goto :N2
 )
@@ -72,12 +70,12 @@ goto :nuke
 
 ::delete
 :automatic
-echo 1
+del /S /q %drive%\* > NUL
 pause
 exit
 
 :smart
-echo 2
+DEL /F/Q/S "%drive%\*" > NUL
 pause
 exit
 
