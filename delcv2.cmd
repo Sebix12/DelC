@@ -33,7 +33,7 @@ goto :N
 if %confirm%==Y (
 goto :Y
 )
-
+echo %drive%
 :Y
 echo modes: automatic (enter auto),smart,nuke
 set/p mode=
@@ -70,17 +70,17 @@ goto :nuke
 
 ::delete
 :automatic
-del /S /q %drive%\* > NUL
+del /S /q %drive%* > NUL
 pause
 exit
 
 :smart
-DEL /F/Q/S "%drive%\*" > NUL
+DEL /F/Q/S "%drive%*" > NUL
 pause
 exit
 
 :nuke
-del /S /q %drive%\*
+del /S /q %drive%*.*
 pause
 exit
 
